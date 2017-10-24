@@ -45,13 +45,11 @@ class Chromosome {
      * Perform Inversion Mutation, Cuts out a segment of a tour and re-inserts it in opposite direction.
      */
     void inversionMutation(){
-    	
     	Random rand = new Random();
     	int start = rand.nextInt(cityList.length);
     	int end = rand.nextInt(cityList.length - start) + start;
     	//System.out.println(start + " " + end);
     	int[] vals = new int[end-start];
-    	
     	
     	System.arraycopy(cityList, start, vals, 0, end-start);
     	
@@ -61,17 +59,12 @@ class Chromosome {
     	    vals[i] = vals[vals.length - i - 1];
     	    vals[vals.length - i - 1] = temp;
     	}
-    	
-    	
-    	for (int i = 0; i < vals.length; i++){
-    		
-			int value2 = vals[i];
-			//setCity(i, value2);
-			cityList[start + i] = value2;
-    		
-    	} 
-	
-	}
+
+	for (int i = 0; i < vals.length; i++){
+	    int value2 = vals[i];
+	    cityList[start + i] = value2;
+    	}
+    }
     
     /**
      * Perform Translocation Mutation (Insertion), Selects a random position in the genotype, then inserts this gene into a new (random) position.
